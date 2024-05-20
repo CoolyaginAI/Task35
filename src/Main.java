@@ -1,4 +1,6 @@
 import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class Main {
@@ -10,7 +12,7 @@ public class Main {
 
         ArrayList<User> myArrayList = new ArrayList<>();
 
-        for (int i=0; i<3; i++) {
+        for (int i=0; i<5; i++) {
 
             System.out.println("Введите имя " + (i+1) + "-го пользователя");
             newName = in.nextLine();
@@ -22,9 +24,12 @@ public class Main {
             myArrayList.add(userTemp);
         }
 
-        for (int i=0; i<3; i++) {
+
+        Comparator sortAge = new AgeComporator();
+        myArrayList.sort(sortAge);
+
+        for (int i=0; i<5; i++) {
             System.out.println(myArrayList.get(i).toString());
         }
-
     }
 }
